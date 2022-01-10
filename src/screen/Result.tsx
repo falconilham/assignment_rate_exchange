@@ -1,19 +1,14 @@
-import { useEffect, useMemo } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useMemo } from 'react'
+import { useSelector } from 'react-redux'
 import { RootState } from '../redux';
 import { View } from '../core-ui'
-import { Row, Col, Card, Typography, } from 'antd'
+import { Row, Col, Card, } from 'antd'
 
 const { Meta } = Card
 
 function Result() {
-    const dispatch = useDispatch()
     const state = useSelector((state: RootState) => state)
     const { value, data } = state
-    useEffect(() => {
-        /* @ts-ignore dont know how to define this*/
-        dispatch(getAllRateExchange(value.toCurrency))
-    },[])
     const selectedCurrency: any = useMemo(() => data.find((item: any) => item.value === value.toCurrency), [data])
     const resultData = {
         label: selectedCurrency?.label,

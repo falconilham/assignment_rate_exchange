@@ -1,6 +1,5 @@
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import history from './helper/history';
 import store from './redux'
 import Routing from './screen'
 import './App.css';
